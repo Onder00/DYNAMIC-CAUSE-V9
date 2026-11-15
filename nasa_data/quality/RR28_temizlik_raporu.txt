@@ -1,0 +1,23 @@
+NASA RR-28 — Veri Temizleme Raporu
+Kaynak: NASA Environmental Data Application (EDA), RR-28 Telemetry
+Ham dosya: RR-28_EDA_Telemetry_data.csv
+Ham kayıt sayısı: 61,488
+Temiz zaman kaydı sayısı: 61,481
+Birleştirilen tekrar grubu: 7
+Tekrar grup kaynak satırları: 14
+Toplam çelişkili ölçüm hücresi: 13
+Ham eksik ölçüm hücresi: 6
+Temiz dosyadaki boş ölçüm hücresi: 19
+1 dakikadan uzun zaman boşluğu: 20
+En büyük boşluk (dakika): 5537
+Zaman aralığı (GMT): 2024-03-21 00:00 — 2024-05-06 13:16
+Ham eksikler: {'Temp_degC_Ground': 1, 'Temp_degC_ISS': 1, 'RH_percent_Ground': 1, 'RH_percent_ISS': 1, 'CO2_ppm_Ground': 1, 'CO2_ppm_ISS': 1}
+Çelişen sütunlar: {'CO2_ppm_Ground': 6, 'CO2_ppm_ISS': 7}
+Temiz dosyada boş sütunlar: {'Temp_degC_Ground': 1, 'Temp_degC_ISS': 1, 'RH_percent_Ground': 1, 'RH_percent_ISS': 1, 'CO2_ppm_Ground': 7, 'CO2_ppm_ISS': 8}
+
+Yöntem: NaN→boş; tekrarlanan zamanlarda yalnızca çelişmeyen değerler korundu.
+Çelişen hücreler boş bırakıldı; özgün satırlar ayrı dosyada saklandı.
+Zaman boşlukları doldurulmadı; yüksek CO2 değerleri otomatik silinmedi.
+ISS ve Ground sütunları ayrı bırakıldı. Tanısal eşik uygulanmadı.
+Çıktı: RR28_temiz_veri.csv
+Tekrar kayıt denetimi: RR28_tekrar_kayitlari.csv
