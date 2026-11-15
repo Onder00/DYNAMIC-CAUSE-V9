@@ -1,0 +1,17 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.env
+.env.*
+.streamlit/secrets.toml
+.DS_Store
+Thumbs.db
+ESP32_canli_veriler_v3.csv
+ESP32_canli_veriler.csv
+ESP32_dokunma_olaylari.csv
+DYNAMIC_CAUSE_V9_checkins.csv
+DC_V8.CSV
+DYNAMIC_CAUSE_V9_EVIDENCE.json
+*.log
