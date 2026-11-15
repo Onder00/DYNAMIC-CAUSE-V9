@@ -1,0 +1,61 @@
+DYNAMIC CAUSE V9 – KURULUM VE DEMO
+================================
+
+1) dynamic_cause_v9_panel.py dosyasını Windows'taki
+   C:\Users\keski\OneDrive\Desktop\DYNAMIC_CAUSE\
+   klasörüne koy. V3, V5, V7, V8 dosyalarını silme.
+
+2) ESP32 + Arduino Uno kartlarını USB üzerinden besle.
+   V8 ESP32 firmware ve V7 Uno LCD firmware aynı kalır.
+
+3) Terminal 1 (VS Code, DYNAMIC_CAUSE klasöründe):
+   .venv\Scripts\Activate.ps1
+   python esp32_veri_toplama_v3.py
+
+   Arduino IDE Serial Monitor ve başka COM9 okuyucuları KAPALI olsun.
+
+4) Terminal 2 (VS Code, aynı klasörde):
+   .venv\Scripts\Activate.ps1
+   python -m streamlit run dynamic_cause_v9_panel.py --server.port 8509
+
+5) Tarayıcı: http://localhost:8509
+
+6) NASA verisi: RR28_temiz_veri.csv dosyası aynı klasörde olmalı.
+   Veriler 2024 tarihli deneysel ortam ölçümleridir; canlı ISS telemetrisi değil.
+
+7) SD arşivi: Karttaki DC_V8.CSV dosyasını bilgisayara KOPYALA
+   (kartı çıkarmadan önce ESP32'nin gücünü kes). Ardından dosyayı
+   aynı klasöre koy veya panelin MicroSD sekmesinden yükle.
+   SD'deki esp32_millis UTC zamanı değildir.
+
+8) Canlı demo: LDR'ye ışık tut, TTP223'e bas. OLED, LCD ve
+   Streamlit panelindeki değerleri kontrol et.
+
+9) Crew Check-in: Gerçek kişi ölçümü kullanmadan örnek görmek için
+   'Sunum için sentetik senaryoyu göster' seçeneğini aç. Bu veriler
+   SENTETİK olarak etiketlenir. Gerçek öz bildirim formunu kullanırsan
+   ayrı DYNAMIC_CAUSE_V9_checkins.csv dosyasına yerel kaydedilir.
+
+10) Kanıt & Sunum Raporu: JSON kanıt raporunu indir ve jüriye
+    veri kaynağı ayrımı + sistem mimarisini anlat.
+
+NOTLAR
+------
+- V9, COM9'u açmaz. COM9 yalnızca esp32_veri_toplama_v3.py tarafından kullanılır.
+- V9 NASA verisini ve SD arşivini doğrudan okur; NASA'dan canlı veri çekmez.
+- V9 mevcut Arduino/Python/Streamlit V5 dosyalarını değiştirmez.
+- Check-in gösterim kuralları tıbbi tanı değildir, NASA onaylı eşikler değildir.
+- Bilgisayarda kurulu Streamlit sürümü eskiyse otomatik 2 saniyelik yenileme
+  yerine panelde manuel 'Veriyi yenile' seçeneği görünür.
+
+TEST LİSTESİ
+------------
+[ ] Terminal 1 ESP32 connected successfully diyor.
+[ ] ESP32 OLED V8 üzerinde SD:OK var.
+[ ] Arduino Uno LCD canlı LIGHT/EVENTS gösteriyor.
+[ ] Terminal 2 Streamlit panelini 8509 portunda açıyor.
+[ ] Canlı sekmede ışık değeri değişiyor.
+[ ] MicroSD sekmesinde en az bir kayıt var.
+[ ] NASA RR-28 sekmesinde ISS/yer geçmiş verileri çiziliyor.
+[ ] Sentetik check-in ile açıklamalı demo uyarısı çıkıyor.
+[ ] JSON kanıt raporu indirilebiliyor.
