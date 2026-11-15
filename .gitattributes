@@ -1,0 +1,2 @@
+# Preserve NASA original CSV chunks byte-for-byte on all platforms.
+nasa_data/raw_parts/*.part -text
