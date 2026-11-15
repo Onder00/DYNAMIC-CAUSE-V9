@@ -38,4 +38,4 @@
 
 The prepared NASA data are **not** live ISS telemetry and do **not** represent astronaut physiological measurements. No direct causal connection to synthetic or self-reported check-ins has been tested.
 
-**Repository completion note:** CSV datasets should be placed under `nasa_data/`; the full source and prepared datasets are not yet present in this initial code/documentation upload.
+**Reproducibility:** The complete original 4,422,233-byte source CSV is stored byte-for-byte across eight files in `nasa_data/raw_parts/`. Run `python scripts/restore_nasa_data.py` to concatenate it, validate the source SHA-256, regenerate the prepared CSV with the original `RR28_temizle.py`, verify the prepared CSV SHA-256, and place a working dashboard copy in project root. The generated duplicate audit and cleaning report are also reproducible. The eight GitHub blobs were individually checked against the original CSV's byte-exact chunks.
