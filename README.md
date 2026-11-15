@@ -26,7 +26,13 @@ python -m pip install -r requirements.txt
 python -m streamlit run dynamic_cause_v9_panel.py --server.port 8509
 ```
 
-The V9 dashboard expects the historical processed CSV at project root as `RR28_temiz_veri.csv`. Until the dataset is uploaded, download or regenerate it using the actual RR-28 EDA source file following `docs/DATA_PROVENANCE.md`, and place it at that path. The dashboard can demonstrate check-in rules independently of live sensor acquisition.
+The NASA original RR-28 EDA CSV is preserved in **8 byte-exact parts** in `nasa_data/raw_parts/` to enable GitHub connector upload while retaining its integrity. **First run:**
+
+```bash
+python scripts/restore_nasa_data.py
+```
+
+This reconstructs `nasa_data/RR-28_EDA_Telemetry_data.csv`, validates its original SHA-256, executes the preserved `nasa_data/RR28_temizle.py` processing, validates the resulting `nasa_data/RR28_temiz_veri.csv`, and installs the cleaned CSV at project root as `RR28_temiz_veri.csv` for the V9 dashboard. No manual NASA download is needed. The dashboard can demonstrate check-in rules independently of live sensor acquisition.
 
 ## NASA RR-28 preprocessing
 **Official NASA OSDR Environmental Data Application:** https://visualization.osdr.nasa.gov/eda/
@@ -37,7 +43,7 @@ Source CSV: `RR-28_EDA_Telemetry_data.csv` (historical ISS and ground telemetry,
 python nasa_data/RR28_temizle.py nasa_data/RR-28_EDA_Telemetry_data.csv
 ```
 
-The pipeline normalizes missing markers, validates timestamps and numeric fields, groups duplicate timestamp records without averaging contradictory measurements, saves duplicate source rows for audit, flags QA conditions, and preserves time gaps and ISS-versus-ground distinction. Recorded results: 61,488 original rows → 61,481 unique timestamp rows. The original raw/processed CSV files will be added to the repository once upload is completed; the preserved source and quality reports are included now.
+The pipeline normalizes missing markers, validates timestamps and numeric fields, groups duplicate timestamp records without averaging contradictory measurements, saves duplicate source rows for audit, flags QA conditions, and preserves time gaps and ISS-versus-ground distinction. Recorded results: 61,488 original rows → 61,481 unique timestamp rows. The original raw CSV is present in eight verified, reassemblable parts; the complete processed CSV is regenerated deterministically with the included preprocessing script and integrity checker.
 
 ## Project demonstration
 [7-slide English presentation — public Google Drive PDF](https://drive.google.com/file/d/1VpdU-SmF0JiuM-h8tUiJZa540GpTCflh/view?usp=sharing)
