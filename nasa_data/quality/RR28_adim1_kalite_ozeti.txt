@@ -1,0 +1,24 @@
+DYNAMIC CAUSE — NASA RR-28 / AŞAMA 1: HAM VERİ KALİTE DENETİMİ
+Kaynak: RR-28_EDA_Telemetry_data.csv (kullanıcının NASA EDA'dan indirdiği ham dosya)
+İşlem: Ham dosya değiştirilmedi. Kontrol edilen CSV'de eksik değerler boş hücreye dönüştürüldü, orijinal değerler korundu. QA sütunları eklendi. Yinelenen kayıtlar silinmedi; CO2 çelişkileri ortalanmadı.
+
+Toplam satır: 61,488
+Sütunlar: Controller_Time_GMT, Temp_degC_Ground, Temp_degC_ISS, RH_percent_Ground, RH_percent_ISS, CO2_ppm_Ground, CO2_ppm_ISS
+Zaman aralığı: 2024-03-21 00:00 / 2024-05-06 13:16 GMT
+Benzersiz zaman damgası: 61,481
+Yinelenen zaman damgası: 7 farklı dakika (toplam 14 satır)
+Yinelenmeden kaynaklı fazladan kayıt: 7
+Eksik ölçüm değerleri (sütun bazında):
+  - Temp_degC_Ground: 1
+  - Temp_degC_ISS: 1
+  - RH_percent_Ground: 1
+  - RH_percent_ISS: 1
+  - CO2_ppm_Ground: 1
+  - CO2_ppm_ISS: 1
+Toplam sorun işareti olan satır sayısı: 36
+1 dakikadan uzun zaman boşluğu olan kayıt adedi: 20
+En büyük zaman boşluğu: 5537 dakika (~92.3 saat)
+Başlıca zaman boşluğu dağılımı (dakika -> sıklık): {2: 18, 3: 1, 5537: 1}
+
+UYARI: RR-28 ISS ölçümleri uzay istasyonundaki araştırma ortamı telemetrisidir; astronot bireysel sağlık kaydı değildir.
+SONRAKİ AŞAMA: Mükerrer zaman damgalarındaki çelişkili CO2 ölçümlerini ayrı incelemek ve analiz için geçerli kayıt stratejisini seçmek; asıl veri setinden hiçbir gözlemi sessizce çıkarmamak.
